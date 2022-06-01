@@ -1,5 +1,7 @@
 package com.project1.models;
 
+import java.util.List;
+
 public class Employee {
 
     private int id;
@@ -7,6 +9,7 @@ public class Employee {
     private String password;
     private String firstName;
     private String lastName;
+    private List<Reimbursement> reimbursements;
 
     public Employee() {
     }
@@ -57,6 +60,14 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Reimbursement> getReimbursements() {
+        return reimbursements;
+    }
+
+    public void setReimbursements(List<Reimbursement> reimbursements) {
+        this.reimbursements = reimbursements;
     }
 
     @Override

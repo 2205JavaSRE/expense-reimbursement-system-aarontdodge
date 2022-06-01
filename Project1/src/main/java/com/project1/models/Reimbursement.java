@@ -4,18 +4,22 @@ public class Reimbursement {
 
     private int id;
     private boolean approved;
+    private boolean reviewed;
     private String category;
     private double amount;
+    private int requesterId;
 
 
     public Reimbursement() {
     }
 
-    public Reimbursement(int id, String category, double amount, boolean approved) {
+    public Reimbursement(int id, boolean reviewed, String category, double amount, boolean approved, int requesterId) {
         this.id = id;
+        this.reviewed = reviewed;
         this.category = category;
         this.amount = amount;
         this.approved = approved;
+        this.requesterId = requesterId;
     }
 
     public int getId() {
@@ -50,6 +54,22 @@ public class Reimbursement {
         this.approved = approved;
     }
 
+    public int getRequesterId() {
+        return requesterId;
+    }
+
+    public void setRequesterId(int requesterId) {
+        this.requesterId = requesterId;
+    }
+
+    public boolean isReviewed() {
+        return reviewed;
+    }
+
+    public void setReviewed(boolean reviewed) {
+        this.reviewed = reviewed;
+    }
+
     @Override
     public String toString() {
         return "Reimbursement{" +
@@ -57,6 +77,7 @@ public class Reimbursement {
                 ", category='" + category + '\'' +
                 ", amount=" + amount +
                 ", approved=" + approved +
+                ", reviewed=" + reviewed +
                 '}';
     }
 
