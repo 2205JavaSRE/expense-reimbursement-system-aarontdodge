@@ -1,33 +1,40 @@
 package com.project1.models;
 
 public class Reimbursement {
+    // TODO - add timestamp (to replace id as primary key?)
 
-    private int id;
+    private String datetime;
     private boolean approved;
     private boolean reviewed;
     private String category;
     private double amount;
-    private int requesterId;
+    private String requesterUsername;
 
 
     public Reimbursement() {
     }
 
-    public Reimbursement(int id, boolean reviewed, String category, double amount, boolean approved, int requesterId) {
-        this.id = id;
+    public Reimbursement(String datetime, boolean reviewed, String category, double amount, boolean approved, String requesterUsername) {
+        this.datetime = datetime;
         this.reviewed = reviewed;
         this.category = category;
         this.amount = amount;
         this.approved = approved;
-        this.requesterId = requesterId;
+        this.requesterUsername = requesterUsername;
     }
 
-    public int getId() {
-        return id;
+    public Reimbursement(String category, double amount, String requesterUsername) {
+        this.category = category;
+        this.amount = amount;
+        this.requesterUsername = requesterUsername;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getDatetime() {
+        return datetime;
+    }
+
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
     }
 
     public String getCategory() {
@@ -54,12 +61,12 @@ public class Reimbursement {
         this.approved = approved;
     }
 
-    public int getRequesterId() {
-        return requesterId;
+    public String getrequesterUsername() {
+        return requesterUsername;
     }
 
-    public void setRequesterId(int requesterId) {
-        this.requesterId = requesterId;
+    public void setrequesterUsername(String requesterUsername) {
+        this.requesterUsername = requesterUsername;
     }
 
     public boolean isReviewed() {
@@ -73,12 +80,12 @@ public class Reimbursement {
     @Override
     public String toString() {
         return "Reimbursement{" +
-                "id=" + id +
-                ", category='" + category + '\'' +
-                ", amount=" + amount +
+                "datetime='" + datetime + '\'' +
                 ", approved=" + approved +
                 ", reviewed=" + reviewed +
+                ", category='" + category + '\'' +
+                ", amount=" + amount +
+                ", requesterUsername='" + requesterUsername + '\'' +
                 '}';
     }
-
 }

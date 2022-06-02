@@ -19,7 +19,10 @@ public class ReimbursementService {
     }
 
     public List<Reimbursement> getPendingReimbursements() {
-        List<Reimbursement> reimbursements = reimbursementDao.getPendingReimbursements();
-        return reimbursements;
+        return reimbursementDao.getPendingReimbursements();
+    }
+
+    public List<Reimbursement> getPendingByUsername(String username) {
+        return reimbursementDao.getMyPending(username);
     }
 }

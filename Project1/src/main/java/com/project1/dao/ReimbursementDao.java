@@ -10,4 +10,6 @@ public interface ReimbursementDao {
     List<Reimbursement> getReimbursements();
 
     List<Reimbursement> getPendingReimbursements();
+
+    List<Reimbursement> getMyPending(String username);
 }

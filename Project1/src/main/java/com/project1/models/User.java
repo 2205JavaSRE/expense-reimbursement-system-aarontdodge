@@ -2,32 +2,23 @@ package com.project1.models;
 
 import java.util.List;
 
-public class Employee {
+public class User {
 
-    private int id;
     private String username;
     private String password;
     private String firstName;
     private String lastName;
-    private List<Reimbursement> reimbursements;
+    private String role;
 
-    public Employee() {
+    public User() {
     }
 
-    public Employee(int id, String username, String password, String firstName, String lastName) {
-        this.id = id;
+    public User(String username, String password, String firstName, String lastName, String role) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.role = role;
     }
 
     public String getUsername() {
@@ -62,22 +53,22 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public List<Reimbursement> getReimbursements() {
-        return reimbursements;
+    public String getRole() {
+        return role;
     }
 
-    public void setReimbursements(List<Reimbursement> reimbursements) {
-        this.reimbursements = reimbursements;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
+        return "User{" +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", role='" + role +
                 '}';
     }
 }

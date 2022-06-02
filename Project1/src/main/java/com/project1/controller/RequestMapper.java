@@ -1,13 +1,12 @@
 package com.project1.controller;
 
-import com.project1.models.Employee;
+import com.project1.models.User;
 import io.javalin.Javalin;
 
 public class RequestMapper {
-
-    private final EmployeeController employeeController = new EmployeeController();
-    private final ManagerController managerController = new ManagerController();
+    
     private final ReimbursementController reimbursementController = new ReimbursementController();
+    private final AuthenticateController authenticateController = new AuthenticateController();
     public void configureRoutes(Javalin app) {
 
         app.post("/api/request", ctx -> {
@@ -30,17 +29,11 @@ public class RequestMapper {
 
         // TODO - figure out authentication
         app.post("/api/session", ctx -> {
-            Employee e = ctx.bodyAsClass(Employee.class);
-            ctx.sessionAttribute("employee", e);
-        });
-
-        app.get("/api/session/secret", ctx -> {
-            Employee e = ctx.sessionAttribute("employee");
-            System.out.println(e.getUsername());
+            authenticateController.authenticateFromJSON(ctx);
         });
 
         app.get("/api/session/end", ctx -> {
-            ctx.consumeSessionAttribute("employee");
+            authenticateController.logout(ctx);
         });
 
 
