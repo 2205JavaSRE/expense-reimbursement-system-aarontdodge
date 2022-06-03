@@ -25,6 +25,7 @@ public class AuthenticateController {
     public void logout(Context ctx) {
         ctx.consumeSessionAttribute("username");
         ctx.consumeSessionAttribute("role");
+
     }
 
 }
