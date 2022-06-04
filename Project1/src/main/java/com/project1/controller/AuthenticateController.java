@@ -1,6 +1,5 @@
 package com.project1.controller;
 
-import com.project1.models.Credentials;
 import com.project1.models.User;
 import com.project1.service.AuthenticateService;
 import io.javalin.http.Context;
@@ -10,8 +9,8 @@ public class AuthenticateController {
     AuthenticateService as = new AuthenticateService();
 
     public void authenticateFromJSON(Context ctx) {
-        Credentials c = ctx.bodyAsClass(Credentials.class);
-        User u = as.authenticate(c.getUsername(), c.getPassword());
+        User u = ctx.bodyAsClass(User.class);
+        u = as.authenticate(u.getUsername(), u.getPassword());
         if (u != null) {
             ctx.sessionAttribute("username", u.getUsername());
             ctx.sessionAttribute("role", u.getRole());

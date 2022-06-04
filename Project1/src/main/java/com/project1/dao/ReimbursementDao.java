@@ -12,4 +12,12 @@ public interface ReimbursementDao {
     List<Reimbursement> getPendingReimbursements();
 
     List<Reimbursement> getMyPending(String username);
+
+    List<Reimbursement> getReimbursementsByUsername(String username);
+
+    List<Reimbursement> getReviewedReimbursements(String requestingEmployee);
+
+    List<Reimbursement> getReviewedReimbursements();
+
+    void updateRequest(int id, boolean approved);
 }

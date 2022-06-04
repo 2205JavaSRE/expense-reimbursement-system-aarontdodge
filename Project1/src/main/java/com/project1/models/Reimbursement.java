@@ -1,8 +1,8 @@
 package com.project1.models;
 
 public class Reimbursement {
-    // TODO - add timestamp (to replace id as primary key?)
 
+    private int id;
     private String datetime;
     private boolean approved;
     private boolean reviewed;
@@ -14,7 +14,8 @@ public class Reimbursement {
     public Reimbursement() {
     }
 
-    public Reimbursement(String datetime, boolean reviewed, String category, double amount, boolean approved, String requesterUsername) {
+    public Reimbursement(int id, String datetime, boolean reviewed, String category, double amount, boolean approved, String requesterUsername) {
+        this.id = id;
         this.datetime = datetime;
         this.reviewed = reviewed;
         this.category = category;
@@ -23,10 +24,19 @@ public class Reimbursement {
         this.requesterUsername = requesterUsername;
     }
 
+
     public Reimbursement(String category, double amount, String requesterUsername) {
         this.category = category;
         this.amount = amount;
         this.requesterUsername = requesterUsername;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDatetime() {
@@ -61,11 +71,11 @@ public class Reimbursement {
         this.approved = approved;
     }
 
-    public String getrequesterUsername() {
+    public String getRequesterUsername() {
         return requesterUsername;
     }
 
-    public void setrequesterUsername(String requesterUsername) {
+    public void setRequesterUsername(String requesterUsername) {
         this.requesterUsername = requesterUsername;
     }
 
@@ -80,6 +90,7 @@ public class Reimbursement {
     @Override
     public String toString() {
         return "Reimbursement{" +
+                "id=" + id +
                 "datetime='" + datetime + '\'' +
                 ", approved=" + approved +
                 ", reviewed=" + reviewed +

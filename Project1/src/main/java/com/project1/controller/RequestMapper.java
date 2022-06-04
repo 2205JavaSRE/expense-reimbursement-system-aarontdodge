@@ -1,6 +1,5 @@
 package com.project1.controller;
 
-import com.project1.models.User;
 import io.javalin.Javalin;
 
 public class RequestMapper {
@@ -17,17 +16,22 @@ public class RequestMapper {
             reimbursementController.getAllReimbursements(ctx);
         });
 
+        app.get("/api/requests/user/{username}", ctx -> {
+            reimbursementController.getReimbursementsForUser(ctx);
+        });
+
         app.get("/api/requests/pending", ctx -> {
             reimbursementController.getPendingReimbursements(ctx);
         });
 
-        app.get("/api/requests/past", ctx -> {
-
+        app.get("/api/requests/reviewed", ctx -> {
+            reimbursementController.getReviewedReimbursements(ctx);
         });
 
-        app.put("/api/request/{id}", ctx -> {});
+        app.patch("/api/request/{id}", ctx -> {
+            reimbursementController.reviewRequest(ctx);
+        });
 
-        // TODO - figure out authentication
         app.post("/api/session", ctx -> {
             authenticateController.authenticateFromJSON(ctx);
         });
