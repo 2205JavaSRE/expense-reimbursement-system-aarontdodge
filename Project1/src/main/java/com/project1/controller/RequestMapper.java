@@ -8,37 +8,21 @@ public class RequestMapper {
     private final AuthenticateController authenticateController = new AuthenticateController();
     public void configureRoutes(Javalin app) {
 
-        app.post("/api/request", ctx -> {
-            reimbursementController.createReimbursementRequest(ctx);
-        });
+        app.post("/api/request", reimbursementController::createReimbursementRequest);
 
-        app.get("/api/requests", ctx -> {
-            reimbursementController.getAllReimbursements(ctx);
-        });
+        app.get("/api/requests", reimbursementController::getAllReimbursements);
 
-        app.get("/api/requests/user/{username}", ctx -> {
-            reimbursementController.getReimbursementsForUser(ctx);
-        });
+        app.get("/api/requests/user/{username}", reimbursementController::getReimbursementsForUser);
 
-        app.get("/api/requests/pending", ctx -> {
-            reimbursementController.getPendingReimbursements(ctx);
-        });
+        app.get("/api/requests/pending", reimbursementController::getPendingReimbursements);
 
-        app.get("/api/requests/reviewed", ctx -> {
-            reimbursementController.getReviewedReimbursements(ctx);
-        });
+        app.get("/api/requests/reviewed", reimbursementController::getReviewedReimbursements);
 
-        app.patch("/api/request/{id}", ctx -> {
-            reimbursementController.reviewRequest(ctx);
-        });
+        app.patch("/api/request/{id}", reimbursementController::reviewRequest);
 
-        app.post("/api/session", ctx -> {
-            authenticateController.authenticateFromJSON(ctx);
-        });
+        app.post("/api/session", authenticateController::authenticateFromJSON);
 
-        app.get("/api/session/end", ctx -> {
-            authenticateController.logout(ctx);
-        });
+        app.get("/api/session/end", authenticateController::logout);
 
 
     }
