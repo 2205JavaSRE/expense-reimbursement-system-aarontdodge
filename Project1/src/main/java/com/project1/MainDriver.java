@@ -14,7 +14,6 @@ import io.micrometer.core.instrument.binder.system.UptimeMetrics;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import io.micrometer.prometheus.PrometheusConfig;
 import io.micrometer.prometheus.PrometheusMeterRegistry;
-import io.micrometer.core.instrument.Counter;
 
 import java.io.File;
 
