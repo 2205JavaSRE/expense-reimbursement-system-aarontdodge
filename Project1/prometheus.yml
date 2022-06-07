@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 10s # Default is 15 seconds
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['localhost:9090']
+
+  - job_name: 'testing-project-1'
+    metrics_path: '/metrics'
+    static_configs:
+    - targets: ['project1-server:7000']

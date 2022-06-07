@@ -1,0 +1,17 @@
+services:
+  project1-server:
+    image: 'project-1-test'
+    container_name: 'testing-project-1'
+    ports:
+      - 7000:7000
+    environment:
+      - db_url=jdbc:postgresql://database-1.cpiunhtrzrnj.us-west-2.rds.amazonaws.com:5432/postgres
+      - db_username=java_login
+      - db_password=password
+  prom:
+    image: 'prom/prometheus'
+    container_name: prom-container
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
