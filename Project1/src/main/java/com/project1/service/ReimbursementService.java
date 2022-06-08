@@ -10,6 +10,7 @@ public class ReimbursementService {
 
     private final ReimbursementDao reimbursementDao = new ReimbursementDaoImpl();
     public boolean createNewRequest(Reimbursement reimbursement) {
+        // Reimbursement requests must be greater than 0
         if (reimbursement.getAmount() <= 0) {
             return false;
         } else {
